@@ -1,0 +1,45 @@
+.create_posts
+{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-auto-flow: column;
+    h1
+    {
+        margin: 0px;
+        text-align: right;
+        padding-top: 25px;
+    }
+    .text_area
+    {
+        display: grid;
+        grid-template-columns: 5fr 1fr;
+        grid-gap: 20px;
+
+        input[type='text']
+        {
+            border: 1px solid #cccccc;
+           border-radius: 3px;
+           -webkit-border-radius: 3px;
+           -moz-border-radius: 3px;
+           -khtml-border-radius: 3px;
+           background: #ffffff !important;
+           font-size: 20px;
+           font-family: 'Book Antiqua';
+           height: 40px;
+           padding-left: 10px;
+           margin: 28px;
+           width: 100%;
+        }
+        input[type='button']
+        {
+            margin: 28px;
+            height: 40px;
+            width: 75%;
+        }
+    }
+}
+.posts{
+display: grid;
+grid-template-columns: 1fr;
+grid-gap: 10px;
+}

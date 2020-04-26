@@ -1,8 +1,9 @@
 import React from 'react';
+import css from './Sidebar.module.scss'
 const Sidebar = () =>
 {
     return (
-      <nav className = "nav">
+      <nav className = {css.nav}>
       <div>
         <a href="">Profile</a>
       </div>

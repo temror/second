@@ -1,0 +1,20 @@
+.person
+{
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 140px;
+    grid-gap: 10px;
+    .ava img
+    {
+        border-radius: 100px;
+        border: solid 2px aqua;
+        margin: 0px 15px 20px 25px;
+        width: 120px;
+    };
+    .description
+    {
+        padding: 10px 0px 10px 40px;
+        background-color: honeydew;
+        border: 1px solid aqua;
+    };
+}
