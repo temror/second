@@ -12,7 +12,7 @@ const Profile = () => {
             surname='Дунаева'
             name='Олеся'
             age="18"
-            male="Женский"
+            male="Женскиваи"
             city="Большая Алешня"
             />
             <MyPosts/>
