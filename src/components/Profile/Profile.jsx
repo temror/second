@@ -3,15 +3,21 @@ import c from './Profile.module.scss'
 import Person from './Person/Person'
 import MyPosts from './MyPosts/MyPosts'
 import Posts from './Posts/Posts'
-const Profile = () =>
-{
+
+const Profile = () => {
     return (
-        <div className = {c.content}>
-        <img className = {c.slider} src="https://klike.net/uploads/posts/2019-01/1547367999_1.jpg"></img>
-        <Person />
-        <MyPosts />
-        <Posts />
-    </div>
+        <div className={c.content}>
+            <img className={c.slider} src="https://klike.net/uploads/posts/2019-01/1547367999_1.jpg"></img>
+            <Person
+            surname='Дунаева'
+            name='Олеся'
+            age="18"
+            male="Женский"
+            city="Большая Алешня"
+            />
+            <MyPosts/>
+            <Posts/>
+        </div>
     );
 }
 

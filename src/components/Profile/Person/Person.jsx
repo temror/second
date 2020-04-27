@@ -1,6 +1,6 @@
 import React from 'react';
 import c from './Person.module.scss'
-const Person = () =>
+const Person = (props) =>
 {
     return (
         <div className = {c.person}>
@@ -9,19 +9,19 @@ const Person = () =>
         </div>
         <div className = {c.description}>
           <div className = {c.surname}>
-           Фамилия: Дунаева
+           Фамилия: {props.surname}
           </div>
           <div className = {c.name}>
-            Имя: Леся
+            Имя: {props.name}
           </div>
           <div className = {c.male}>
-            Пол: женский
+            Пол: {props.male}
           </div>
           <div className = {c.age}>
-            Возраст: 24
+            Возраст: {props.age}
           </div>
           <div className = {c.city}>
-            Город: село Большая Алешня
+            Город: {props.city}
           </div>
         </div></div>
     );
