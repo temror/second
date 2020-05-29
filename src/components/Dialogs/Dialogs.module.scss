@@ -1,0 +1,7 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  grid-gap: 10px;
+  grid-auto-flow: column;
+  grid-template-areas: 'u m' 'u f';
+}

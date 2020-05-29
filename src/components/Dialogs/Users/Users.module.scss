@@ -1,0 +1,35 @@
+.users
+{
+  padding-bottom: 30px;
+  grid-area: u;
+}
+h1
+{
+  margin: 0;
+  padding: 10px 10px 0px 10px;
+  font-size: 20px;
+  color: red;
+  font-weight: normal;
+}
+.dialog {
+  padding: 30px 0px 0px 20px;
+
+  a {
+    text-decoration: none;
+    color: aqua;
+
+    &:hover {
+      color: red;
+      text-decoration: line-through;
+    }
+  }
+
+  .active {
+    font-weight: bold;
+    color: red;
+  }
+
+  span {
+    color: white;
+  }
+}

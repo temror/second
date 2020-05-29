@@ -5,25 +5,43 @@ const Person = (props) =>
     return (
         <div className = {c.person}>
         <div className = {c.ava}>
-        <img src = 'https://cs11.pikabu.ru/post_img/2019/03/24/1/1553379308166070482.jpg'></img>
+        <img src = {props.avatar}></img>
         </div>
-        <div className = {c.description}>
+        <div className = {c.desc}>
           <div className = {c.surname}>
-           Фамилия: {props.surname}
+           Фамилия:
           </div>
           <div className = {c.name}>
-            Имя: {props.name}
+            Имя:
           </div>
           <div className = {c.male}>
-            Пол: {props.male}
+            Пол:
           </div>
           <div className = {c.age}>
-            Возраст: {props.age}
+            Возраст:
           </div>
           <div className = {c.city}>
-            Город: {props.city}
+            Город:
           </div>
-        </div></div>
+        </div>
+            <div className = {c.ription}>
+                <div className = {c.surname}>
+                    {props.surname}
+                </div>
+                <div className = {c.name}>
+                    {props.name}
+                </div>
+                <div className = {c.male}>
+                    {props.male}
+                </div>
+                <div className = {c.age}>
+                    {props.age}
+                </div>
+                <div className = {c.city}>
+                    {props.city}
+                </div>
+            </div>
+        </div>
     );
 }
 

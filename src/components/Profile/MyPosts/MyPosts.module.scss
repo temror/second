@@ -17,11 +17,8 @@
 
         input[type='text']
         {
-            border: 1px solid #cccccc;
-           border-radius: 3px;
-           -webkit-border-radius: 3px;
-           -moz-border-radius: 3px;
-           -khtml-border-radius: 3px;
+           border: none;
+           border-bottom: 1px solid aqua;
            background: #ffffff !important;
            font-size: 20px;
            font-family: 'Book Antiqua';
@@ -29,12 +26,23 @@
            padding-left: 10px;
            margin: 28px;
            width: 100%;
+           outline: none;
         }
         input[type='button']
         {
-            margin: 28px;
+          margin: 30px;
             height: 40px;
             width: 75%;
+            background-color: white;
+            color: red;
+            font-size: 20px;
+            border: none;
+            outline: none;
+            &:hover
+            {
+              color: white;
+              background-color: red;
+            }
         }
     }
 }

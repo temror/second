@@ -1,20 +1,33 @@
 .person
 {
     display: grid;
-    grid-template-columns: 1fr 6fr;
-    grid-template-rows: 140px;
+    grid-template-columns: 1fr 1fr 5fr;
+    grid-template-rows: 150px;
     grid-gap: 10px;
+    padding: 15px 0px 0px 5px;
     .ava img
     {
-        border-radius: 100px;
-        border: solid 2px aqua;
+        border-radius: 150px;
+        border: solid 1px aqua;
         margin: 0px 15px 20px 25px;
         width: 120px;
+        height: 120px;
     };
-    .description
+    .desc
     {
-        padding: 10px 0px 10px 40px;
-        background-color: honeydew;
-        border: 1px solid aqua;
+        padding: 10px 0px 10px 0px;
+        border-left: none;
+        div{
+            padding: 2px;
+            text-align: right;
+        }
     };
+    .ription
+    {
+        padding: 10px 0px 10px 10px;
+        border-left: 1px solid red;
+        div{
+            padding: 2px;
+        }
+    }
 }

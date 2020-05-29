@@ -3,20 +3,28 @@ import c from './Profile.module.scss'
 import Person from './Person/Person'
 import MyPosts from './MyPosts/MyPosts'
 import Posts from './Posts/Posts'
-
-const Profile = () => {
+const Profile = (props) => {
+    let newPerson = props.profile.person.map(p=>
+        <Person
+            avatar = {p.avatar}
+            surname={p.surname}
+            name={p.name}
+            age={p.age}
+            male={p.male}
+            city={p.city}
+        />)
     return (
         <div className={c.content}>
-            <img className={c.slider} src="https://klike.net/uploads/posts/2019-01/1547367999_1.jpg"></img>
-            <Person
-            surname='Дунаева'
-            name='Олеся'
-            age="18"
-            male="Женскиваи"
-            city="Большая Алешня"
-            />
-            <MyPosts/>
-            <Posts/>
+            <div className={c.slider}>
+                <div className={c.link}>I</div>
+                <div className={c.link}>Wanna</div>
+                <div className={c.link}>Hold</div>
+                <div className={c.link}>Your</div>
+                <div className={c.link}>Hand</div>
+            </div>
+            {newPerson}
+            <MyPosts dispatch={props.dispatch} postText={props.profile.postText}/>
+            <Posts postsData={props.profile.posts}/>
         </div>
     );
 }
