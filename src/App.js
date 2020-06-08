@@ -8,22 +8,18 @@ import {Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 //import Footer from "./components/Footer/Footer";
-
 const App = (props) => {
     return (
             <div className='app-wrapper'>
                 <Header/>
-                <Sidebar friend={props.state.sidebar.friend}/>
+                <Sidebar/>
                 <div className='app-wrapper-content'>
                     <Route path='/profile'
-                           render={() => <Profile
-                               profile={props.state.profile}
-                               dispatch={props.dispatch}/>}/>
+                           render={() => <ProfileContainer store={props.store}/>}/>
                     <Route path='/dialogs'
-                           render={() => <Dialogs
-                               dialogs={props.state.dialogs}
-                               dispatch={props.dispatch}/>}/>
+                           render={() => <Dialogs store={props.store}/>}/>
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>

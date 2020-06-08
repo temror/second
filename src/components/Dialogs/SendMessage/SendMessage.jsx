@@ -1,6 +1,5 @@
 import React from 'react';
 import c from './SendMessage.module.scss'
-import {changeMessageTextActionCreator, sendMessageActionCreator} from "../../../redux/state";
 
 const SendMessage = (props) =>
 {
@@ -8,13 +7,12 @@ const SendMessage = (props) =>
     let sendMessage = () =>
     {
         let text = messageText.current.value;
-        props.dispatch(sendMessageActionCreator(text))
-        props.dispatch(changeMessageTextActionCreator(' '))
+        props.sendMessageContainer(text)
     }
     let onMessageChange = () =>
     {
         let text = messageText.current.value;
-        props.dispatch(changeMessageTextActionCreator(text))
+        props.onMessageChangeContainer(text)
     }
     return(
         <div className={c.form}>

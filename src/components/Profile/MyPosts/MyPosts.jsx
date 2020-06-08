@@ -1,18 +1,15 @@
 import React from 'react';
 import c from './MyPosts.module.scss'
-import {changePostText, changePostTextActionCreator, sendPost, sendPostActionCreator} from "../../../redux/state";
-import userEvent from "@testing-library/user-event";
 
 const MyPosts = (props) => {
     let newPost = React.createRef();
     let addPost = () => {
         let mes = newPost.current.value;
-        props.dispatch(sendPostActionCreator(mes))
-        props.dispatch(changePostTextActionCreator(''))
+        props.addPostContainer(mes)
     }
     let onPostChange = () => {
         let change = newPost.current.value;
-        props.dispatch(changePostTextActionCreator(change))
+        props.onPostChangeContainer(change)
 
     }
     return (

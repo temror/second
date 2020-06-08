@@ -1,10 +1,10 @@
 import React from 'react';
 import c from './Profile.module.scss'
 import Person from './Person/Person'
-import MyPosts from './MyPosts/MyPosts'
-import Posts from './Posts/Posts'
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import PostsContainer from "./Posts/PostsContainer";
 const Profile = (props) => {
-    let newPerson = props.profile.person.map(p=>
+    let newPerson = props.newPersonContainer.map(p=>
         <Person
             avatar = {p.avatar}
             surname={p.surname}
@@ -23,8 +23,8 @@ const Profile = (props) => {
                 <div className={c.link}>Hand</div>
             </div>
             {newPerson}
-            <MyPosts dispatch={props.dispatch} postText={props.profile.postText}/>
-            <Posts postsData={props.profile.posts}/>
+            <MyPostsContainer store={props.store}/>
+            <PostsContainer store={props.store}/>
         </div>
     );
 }
