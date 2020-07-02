@@ -1,12 +1,12 @@
 import React from 'react';
 import Messages from "./Messages";
+import {connect} from "react-redux";
 
-const MessagesContainer = (props) => {
-    let state = props.store.getState()
-    let messages = state.dialogs.messages
-    return (
-        <Messages messages={messages}/>
-    );
+const mapStateToProps = (state) => {
+    return{
+        messages: state.dialogs.messages
+    }
 }
+const MessagesContainer = connect(mapStateToProps)(Messages)
 
 export default MessagesContainer;

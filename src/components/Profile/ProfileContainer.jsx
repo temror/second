@@ -1,11 +1,13 @@
 import React from 'react';
 import Profile from "./Profile";
-const ProfileContainer = (props) => {
-    let state = props.store.getState()
-    let newPerson = state.profile.person
-    return (
-        <Profile store = {props.store} newPersonContainer = {newPerson}/>
-    );
+import {connect} from "react-redux";
+
+let mapStateToProps = (state) =>{
+    return{
+        newPersonContainer : state.profile.person
+    }
 }
+
+const ProfileContainer = connect(mapStateToProps)(Profile)
 
 export default ProfileContainer;

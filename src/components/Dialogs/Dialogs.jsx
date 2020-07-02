@@ -6,9 +6,9 @@ import SendMessageContainer from "./SendMessage/SendMessageContainer";
 const Dialogs = (props) => {
     return (
         <div className={c.dialogs}>
-            <UsersContainer store={props.store}/>
-            <MessagesContainer store={props.store}/>
-            <SendMessageContainer store={props.store}/>
+            <UsersContainer/>
+            <MessagesContainer/>
+            <SendMessageContainer/>
 
         </div>
     );

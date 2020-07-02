@@ -10,7 +10,6 @@ const MyPosts = (props) => {
     let onPostChange = () => {
         let change = newPost.current.value;
         props.onPostChangeContainer(change)
-
     }
     return (
         <div className={c.create_posts}>

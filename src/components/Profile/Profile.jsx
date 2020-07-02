@@ -23,8 +23,8 @@ const Profile = (props) => {
                 <div className={c.link}>Hand</div>
             </div>
             {newPerson}
-            <MyPostsContainer store={props.store}/>
-            <PostsContainer store={props.store}/>
+            <MyPostsContainer/>
+            <PostsContainer/>
         </div>
     );
 }
