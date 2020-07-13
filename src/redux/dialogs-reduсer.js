@@ -2,7 +2,7 @@ const NEW_MESSAGE = 'NEW-MESSAGE'
 const CHANGE_MESSAGE_TEXT = 'CHANGE-MESSAGE-TEXT'
 
 let initialState = {
-    users: [
+    usersList: [
         {id: 1, userName: 'Artem'},
         {id: 2, userName: 'Ivan'},
         {id: 3, userName: 'Mark'},
@@ -25,20 +25,24 @@ let initialState = {
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case NEW_MESSAGE: {
-            let newMessage = {
-                text: action.textPost,
-                id: 12
-            }
-            let stateCopy = {...state}
-            stateCopy.messages = [...state.messages]
-            stateCopy.messages.push(newMessage);
-            stateCopy.messageText = "";
-            return stateCopy;
+            return {
+                ...state,
+                messages: [
+                    ...state.messages,
+                    {
+                        text: action.textPost,
+                        id: 12
+                    }
+
+                ],
+                messageText : ''
+            };
         }
         case CHANGE_MESSAGE_TEXT: {
-            let stateCopy = {...state}
-            stateCopy.messageText = action.newText;
-            return stateCopy;
+            return {
+                ...state,
+                messageText : action.newText
+            };
         }
         default:
             return state;

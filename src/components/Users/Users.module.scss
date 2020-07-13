@@ -1,0 +1,34 @@
+.users {
+  display: grid;
+  width: 80%;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  margin-left: 20px;
+.pages{
+  padding: 20px;
+  span{
+    padding: 5px;
+    cursor: pointer;
+  }
+  .selectedPage{
+    font-weight: bold;
+  }
+}
+  .ava {
+    width: 100px;
+    height: 100px;
+  }
+
+  .user {
+    width: 100%;
+    height: 110px;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 20px;
+    padding: 20px;
+
+    .ava, .person {
+      height: 100%;
+    }
+  }
+}

@@ -1,9 +1,11 @@
 import React from 'react';
 import c from './Messages.module.scss'
-import Message from "./Message/Message";
 
 const Messages = (props) => {
-    let newMessages = props.messages.map(mes => <Message text={mes.text} id={mes.id} me={mes.me}/>);
+    let newMessages = props.messages.map(m =>
+    <div id={m.id} className={c.message}>
+        {m.text}
+    </div>);
     return (
         <div className={c.messages}>
             {newMessages}

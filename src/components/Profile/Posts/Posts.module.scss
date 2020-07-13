@@ -4,3 +4,15 @@ grid-template-columns: 1fr;
 grid-gap: 10px;
   padding: 30px;
 }
+.post
+{     background-color: white;
+  border-top: 1px solid aqua;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  img
+  {
+    width: 50px;
+    border-radius: 40px;
+  }
+}

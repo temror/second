@@ -4,7 +4,7 @@ import Person from './Person/Person'
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import PostsContainer from "./Posts/PostsContainer";
 const Profile = (props) => {
-    let newPerson = props.newPersonContainer.map(p=>
+    let newPerson = props.newPersonContainer.person.map(p=>
         <Person
             avatar = {p.avatar}
             surname={p.surname}

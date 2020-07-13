@@ -1,0 +1,28 @@
+.nav {
+  background-color: aqua;
+  grid-area: n;
+  margin-top: 80px;
+  padding: 20px;
+  font-size: 20px;
+  position: fixed;
+  height: 100%;
+  min-width: 80px;
+  width: 10%;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .active {
+    color: red;
+  }
+
+  .friends {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    .friend
+    {
+      width: 50px;
+    }
+  }
+}

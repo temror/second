@@ -4,7 +4,7 @@ import c from './Header.module.scss'
 const Header = () => {
     return (
         <header className={c.header}>
-            <h1>bogdanov.com</h1>
+            <h1>cmd + opt + c - консоль JS</h1>
         </header>
     );
 }
