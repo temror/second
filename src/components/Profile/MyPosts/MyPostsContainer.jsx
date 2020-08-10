@@ -1,5 +1,5 @@
 import React from 'react';
-import {changePostTextActionCreator, sendPostActionCreator} from "../../../redux/profile-reducer";
+import {onPostChange, addPost} from "../../../redux/profile-reducer";
 import {connect} from "react-redux";
 import MyPosts from "./MyPosts";
 
@@ -8,18 +8,7 @@ let mapStateToProps = (state) =>{
         postText : state.profile.postText
     }
 }
-let mapDispatchToProps = (dispatch) =>{
-    return{
-        addPostContainer : (mes) =>{
-            dispatch(sendPostActionCreator(mes))
-            dispatch(changePostTextActionCreator(''))},
-        onPostChangeContainer : (change) =>{
-            dispatch(changePostTextActionCreator(change))
-        }
-
-    }
-}
-
-const MyPostsContainer = connect(mapStateToProps,mapDispatchToProps)(MyPosts)
+const MyPostsContainer = connect(mapStateToProps,
+    {addPost, onPostChange})(MyPosts)
 
 export default MyPostsContainer;

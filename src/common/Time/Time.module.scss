@@ -1,0 +1,15 @@
+.time{
+  display: grid;
+  grid-template-columns: 1fr 25fr;
+  p
+  {
+    color: red;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .btn
+  {
+    background-color: red;
+    color: white;
+  }
+}

@@ -9,14 +9,15 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 //import Footer from "./components/Footer/Footer";
 const App = (props) => {
     return (
         <div className='app-wrapper'>
-            <Header/>
+            <HeaderContainer/>
             <Sidebar/>
             <div className='app-wrapper-content'>
-                <Route path='/profile'
+                <Route path='/profile/:id?'
                        render={() => <ProfileContainer/>}/>
                 <Route path='/dialogs' a
                        render={() => <Dialogs/>}/>

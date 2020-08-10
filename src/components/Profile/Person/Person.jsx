@@ -1,48 +1,33 @@
 import React from 'react';
 import c from './Person.module.scss'
+
 const Person = (props) =>
 {
     return (
-        <div className = {c.person}>
-        <div className = {c.ava}>
-        <img src = {props.avatar}></img>
-        </div>
-        <div className = {c.desc}>
-          <div className = {c.surname}>
-           Фамилия:
-          </div>
-          <div className = {c.name}>
-            Имя:
-          </div>
-          <div className = {c.male}>
-            Пол:
-          </div>
-          <div className = {c.age}>
-            Возраст:
-          </div>
-          <div className = {c.city}>
-            Город:
-          </div>
-        </div>
-            <div className = {c.ription}>
-                <div className = {c.surname}>
-                    {props.surname}
+        <div>
+            {props.person.map(p => (
+            <div className = {c.person}>
+                <div className = {c.ava}>
+                    <img src={props.profile.photos.large} alt=""/>
                 </div>
-                <div className = {c.name}>
-                    {props.name}
+                <div className = {c.desc}>
+                    <div>Фамилия</div>
+                    <div>Имя</div>
+                    <div>Пол</div>
+                    <div>Возраст</div>
+                    <div>Город</div>
                 </div>
-                <div className = {c.male}>
-                    {props.male}
-                </div>
-                <div className = {c.age}>
-                    {props.age}
-                </div>
-                <div className = {c.city}>
-                    {props.city}
+                <div className = {c.ription}>
+                    <div>{p.surname}</div>
+                    <div>{p.name}</div>
+                    <div>{p.male}</div>
+                    <div>{p.age}</div>
+                    <div>{props.profile.fullName}</div>
+                    <div>{props.profile.contacts.vk}</div>
                 </div>
             </div>
-        </div>
-    );
+                ))}
+        </div>)
 }
 
 export default Person;

@@ -4,7 +4,8 @@ import c from './Music.module.scss'
 const Music = () => {
     return (
         <div className={c.music}>
-            Music
+            <span></span>Command + Shift + V - буфер обмена
+            Command + Option + C - консоль
         </div>
     );
 }

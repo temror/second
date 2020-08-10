@@ -6,13 +6,12 @@ const SendMessage = (props) =>
     let messageText = React.createRef();
     let sendMessage = () =>
     {
-        let text = messageText.current.value;
-        props.sendMessageContainer(text)
+        props.sendMessage(messageText.current.value)
+        props.changeMessageText('')
     }
     let onMessageChange = () =>
     {
-        let text = messageText.current.value;
-        props.onMessageChangeContainer(text)
+        props.changeMessageText(messageText.current.value)
     }
     return(
         <div className={c.form}>

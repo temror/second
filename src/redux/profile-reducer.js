@@ -1,5 +1,7 @@
 const SEND_POST = 'SEND-POST';
 const CHANGE_POST_TEXT = 'CHANGE-POST-TEXT';
+const SET_PROFILE = 'SET_PROFILE';
+const SET_IS_FETCHING = 'SET_IS_FETCHING'
 
 let initialStore = {
     person: [
@@ -12,10 +14,12 @@ let initialStore = {
             city: "Москва"
         },
     ],
-        posts: [
+    posts: [
         {text: "Я помню чудное мгновенье...", likesCount: 12}
     ],
-        postText: ''
+    postText: '',
+    isFetching: false,
+    profile: {photos:{},contacts:{}}
 }
 
 const profileReducer = (state = initialStore, action) => {
@@ -40,22 +44,47 @@ const profileReducer = (state = initialStore, action) => {
                 postText: action.newText
             }
         }
+        case SET_PROFILE : {
+            return {
+                ...state,
+                profile: action.profile
+
+            }
+        }
+        case SET_IS_FETCHING : {
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
+        }
         default:
             return state
     }
 }
 
-export const sendPostActionCreator = (text) => {
+export const addPost = (text) => {
     return {
         type: SEND_POST,
         textPost: text
     }
 }
-export const changePostTextActionCreator = (text) => {
+export const onPostChange = (text) => {
     return {
         type: CHANGE_POST_TEXT,
         newText: text
 
+    }
+}
+export const setProfile = (profile) => {
+    return {
+        type: SET_PROFILE,
+        profile
+    }
+}
+export const setIsFetching = (isFetching) =>{
+    return{
+        type: SET_IS_FETCHING,
+        isFetching
     }
 }
 

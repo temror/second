@@ -2,12 +2,16 @@ const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
 const CHANGE_COUNT = 'CHANGE_COUNT'
+const TOOGLE_IS_FETCHING = 'TOOGLE_IS_FETCHING'
+const TOOGLE_FOLLOW_IN_PROGRESS = 'TOOGLE_FOLLOW_IN_PROGRESS'
 
 let initialState = {
     users: [],
     pageSize: 10,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: false,
+    followInProgress: []
 }
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -47,25 +51,39 @@ const usersReducer = (state = initialState, action) => {
                 ...state, currentPage: action.currentPage
             }
         }
+        case TOOGLE_IS_FETCHING: {
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
+        }
+        case TOOGLE_FOLLOW_IN_PROGRESS:{
+            return {
+                ...state,
+                followInProgress: action.followInProgress
+                ? [...state.followInProgress,action.userId]
+                : [...state.followInProgress.filter(id=>id!=action.userId)]
+            }
+        }
         default:
             return state;
     }
 }
 
-export const followAC = (userId) => {
+export const follow = (userId) => {
     return {
         type: FOLLOW,
         id: userId
     }
 }
-export const unfollowAC = (userId) => {
+export const unfollow = (userId) => {
     return {
         type: UNFOLLOW,
         id: userId
 
     }
 }
-export const setUsersAC = (users, totalCount) => {
+export const setUsers = (users, totalCount) => {
     return {
         type: SET_USERS,
         users,
@@ -76,6 +94,20 @@ export const changeCount = (currentPage) => {
     return {
         type: CHANGE_COUNT,
         currentPage: currentPage
+    }
+}
+
+export const setIsFetching = (isFetching) =>{
+    return{
+        type: TOOGLE_IS_FETCHING,
+        isFetching: isFetching
+    }
+}
+
+export const setFollowInProgress = (followInProgress,userId) =>{
+    return{
+        type: TOOGLE_FOLLOW_IN_PROGRESS,
+        followInProgress,userId
     }
 }
 

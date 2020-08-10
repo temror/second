@@ -4,12 +4,11 @@ import c from './MyPosts.module.scss'
 const MyPosts = (props) => {
     let newPost = React.createRef();
     let addPost = () => {
-        let mes = newPost.current.value;
-        props.addPostContainer(mes)
+        props.addPost(newPost.current.value)
+        props.onPostChange('')
     }
     let onPostChange = () => {
-        let change = newPost.current.value;
-        props.onPostChangeContainer(change)
+        props.onPostChange(newPost.current.value)
     }
     return (
         <div className={c.create_posts}>

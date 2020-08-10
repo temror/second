@@ -1,12 +1,13 @@
 import React from 'react';
 import c from './Sidebar.module.scss'
 import {NavLink} from "react-router-dom";
+import Profile from "../Profile/Profile";
 
 const Sidebar = () => {
     return (
         <nav className={c.nav}>
             <div>
-                <NavLink to="/profile" activeClassName={c.active}>Profile</NavLink>
+                <NavLink to="/profile/" activeClassName={c.active}>Profile</NavLink>
             </div>
             <div>
                 <NavLink to="/dialogs" activeClassName={c.active}>Messages</NavLink>
@@ -24,7 +25,8 @@ const Sidebar = () => {
             <div>
                 <NavLink to="/settings" activeClassName={c.active}>Settings</NavLink>
             </div>
-            <div className="friends">
+            <div>
+            <NavLink to="/friends" activeClassName={c.active}>Friends</NavLink>
             </div>
         </nav>);
 }

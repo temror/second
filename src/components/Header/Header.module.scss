@@ -3,10 +3,28 @@
 grid-area: h;
 background-color: aqua;
    position: fixed;
-   width: 1000px;
-   h1
-   {
-      color: white;
-      padding: 20px;
+   max-width: 1000px;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   .login_block{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 3%;
+      textarea {
+         border: 0px;
+         &:hover{
+            border: 0px;
+         }
+      }
+      .buttons{
+         padding: 3%;
+         display: block;
+      }
+      a{
+         color: white;
+         text-decoration: none;
+         font-size: 15px;
+         padding: 5%;
+      }
    }
 }
