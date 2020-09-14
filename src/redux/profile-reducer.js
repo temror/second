@@ -1,7 +1,9 @@
+import {profileApi} from "../api/Api";
+
 const SEND_POST = 'SEND-POST';
 const CHANGE_POST_TEXT = 'CHANGE-POST-TEXT';
 const SET_PROFILE = 'SET_PROFILE';
-const SET_IS_FETCHING = 'SET_IS_FETCHING'
+const SET_IS_FETCHING = 'SET_IS_FETCHING';
 
 let initialStore = {
     person: [
@@ -19,73 +21,38 @@ let initialStore = {
     ],
     postText: '',
     isFetching: false,
-    profile: {photos:{},contacts:{}}
+    profile: {photos: {}, contacts: {}}
 }
 
 const profileReducer = (state = initialStore, action) => {
-
     switch (action.type) {
         case SEND_POST: {
-            return {
-                ...state,
-                posts: [
-                    ...state.posts,
-                    {
-                        text: action.textPost,
-                        likesCount: 12
-                    }
-                ],
-                postText: ''
-            }
-        }
+            return {...state,
+                posts: [...state.posts, {text: action.text, likesCount: 12}],
+                postText: ''}}
         case CHANGE_POST_TEXT: {
-            return {
-                ...state,
-                postText: action.newText
-            }
-        }
+            return {...state,
+                postText: action.text}}
         case SET_PROFILE : {
-            return {
-                ...state,
-                profile: action.profile
-
-            }
-        }
+            return {...state,
+                profile: action.profile}}
         case SET_IS_FETCHING : {
-            return {
-                ...state,
-                isFetching: action.isFetching
-            }
-        }
-        default:
-            return state
-    }
-}
+            return {...state,
+                isFetching: action.isFetching}}
+        default: return state}}
 
-export const addPost = (text) => {
-    return {
-        type: SEND_POST,
-        textPost: text
-    }
-}
-export const onPostChange = (text) => {
-    return {
-        type: CHANGE_POST_TEXT,
-        newText: text
+export const addPost = text => {return {type: SEND_POST, text}}
+export const onPostChange = text => {return {type: CHANGE_POST_TEXT, text}}
+export const setProfile = profile => {return {type: SET_PROFILE, profile}}
+export const setIsFetching = isFetching => {return {type: SET_IS_FETCHING, isFetching}}
 
-    }
-}
-export const setProfile = (profile) => {
-    return {
-        type: SET_PROFILE,
-        profile
-    }
-}
-export const setIsFetching = (isFetching) =>{
-    return{
-        type: SET_IS_FETCHING,
-        isFetching
-    }
+export const getProfile = userId => dispatch => {
+    dispatch(setIsFetching(true))
+    profileApi.getProfile(userId).then(
+        data => {
+            dispatch(setIsFetching(false))
+            dispatch(setProfile(data))
+        })
 }
 
 export default profileReducer;

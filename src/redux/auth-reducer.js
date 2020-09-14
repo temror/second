@@ -1,3 +1,5 @@
+import {headerApi} from "../api/Api";
+
 const SET_USER_DATA = 'SET_USER_DATA'
 const SET_IS_FETCHING = 'SET_IS_FETCHING'
 
@@ -31,17 +33,19 @@ const authReducer = (state = initialStore, action) => {
 }
 
 
-export const setUserData = (userId,email,login) => {
-    return {
-        type: SET_USER_DATA,
-        data: {userId, email, login}
-    }
+export const setUserData = (userId,email,login) => {return {type: SET_USER_DATA, data: {userId, email, login}}}
+export const setIsFetching = (isFetching) =>{return{type: SET_IS_FETCHING, isFetching}}
+
+export const authMe = () => dispatch =>{
+    dispatch(setIsFetching(true))
+    headerApi.authMe().then(data =>{
+        dispatch(setIsFetching(false))
+        if(data.resultCode === 0){
+            dispatch(setUserData(
+                data.data.id,
+                data.data.email,
+                data.data.login))}
+    })
 }
 
-export const setIsFetching = (isFetching) =>{
-    return{
-        type: SET_IS_FETCHING,
-        isFetching: isFetching
-    }
-}
 export default authReducer;

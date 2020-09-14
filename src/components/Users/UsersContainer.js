@@ -1,32 +1,23 @@
 import React from "react";
 import {connect} from "react-redux";
-import {changeCount, follow, setFollowInProgress, setIsFetching, setUsers, unfollow} from "../../redux/users-reduser";
+import {
+    acceptFollow, acceptUnfollow,
+    follow,
+    getUsers,
+    onPageChanged,
+    setFollowInProgress,
+    unfollow
+} from "../../redux/users-reduser";
 import Users from "./Users";
 import Preloader from "../../common/Preloader/Preloader";
-import {userApi} from "../../api/Api";
 
 class UsersAPI extends React.Component {
     componentDidMount() {
-        this.props.setIsFetching(true)
-        userApi.getUsers(this.props.currentPage,this.props.pageSize).then(
-            data => {
-                debugger
-                this.props.setIsFetching(false)
-                this.props.setUsers(
-                    data.items,
-                    data.totalCount)
-            })
+        this.props.getUsers(this.props.currentPage, this.props.pageSize)
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.setIsFetching(true)
-        this.props.changeCount(pageNumber)
-        userApi.getUsers(pageNumber,this.props.pageSize).then(
-            data => {
-                this.props.setIsFetching(false)
-                this.props.setUsers(
-                    data.items)
-            })
+        this.props.onPageChanged(pageNumber, this.props.pageSize)
     }
 
     render() {
@@ -40,9 +31,8 @@ class UsersAPI extends React.Component {
                     users={this.props.users}
                     currentPage={this.props.currentPage}
                     unfollow={this.props.unfollow}
-                    follow={this.props.follow}
                     followInProgress={this.props.followInProgress}
-                    setFollowInProgress={this.props.setFollowInProgress}
+                    follow={this.props.follow}
                 />
             </>
         )
@@ -61,7 +51,11 @@ let mapStateToProps = (state) => {
 }
 
 const UsersContainer = connect(mapStateToProps,
-    {follow, unfollow, setUsers, changeCount, setIsFetching, setFollowInProgress})
+    {
+        acceptFollow, acceptUnfollow,
+        follow, unfollow, setFollowInProgress,
+        getUsers, onPageChanged
+    })
 (UsersAPI)
 
 export default UsersContainer

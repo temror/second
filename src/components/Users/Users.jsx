@@ -2,8 +2,6 @@ import React from "react";
 import c from "./Users.module.scss"
 import userPhoto from "../../images/liv.jpg";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
-import {userApi} from "../../api/Api";
 
 let Users = (props) => {
     let pageCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -31,42 +29,15 @@ let Users = (props) => {
                 {u.followed
                     ? <button
                         disabled={props.followInProgress.some(id => id === u.id)}
-                        onClick={() => {
-                            props.setFollowInProgress(true, u.id)
-                            userApi.apiUnfollow(u).then(data => {
-                                if (data.resultCode === 0) {
-                                    props.unfollow(u.id)
-                                }
-                                props.setFollowInProgress(false, u.id)
-                            })
-                        }}
-                    >Unfollow</button>
+                        onClick={() => {props.unfollow(u)}}>Unfollow</button>
                     : <button
                         disabled={props.followInProgress.some(id => id === u.id)}
-                        onClick={() => {
-                            props.setFollowInProgress(true, u.id)
-                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                                withCredentials: true,
-                                headers: {'API-KEY': '0160ca7c-6b5d-4f52-9db3-b0ccd36c63fc'}
-                            })
-                                .then(response => {
-                                    if (response.data.resultCode === 0) {
-                                        props.follow(u.id)
-                                    }
-                                    props.setFollowInProgress(false, u.id)
-                                })
-                        }}>Follow</button>}</div>
+                        onClick={() => {props.follow(u)}}>Follow</button>}
+            </div>
         </span>
                     <span>
-        <span>
             <div>{u.name}</div>
-            <div>{u.status}</div>
         </span>
-                        {/*<span>
-            <div>{u.location.country}</div>
-            <div>{u.location.city}</div>
-        </span>*/}
-            </span>
                 </div>
             ))}</div>
     )
